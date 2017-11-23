@@ -1,7 +1,9 @@
-var styles = {
-  color: "red",
-  background: "pink",
-  border: "2px solid purple"
-};
+const colors = [
+    "#ebedf0",
+    "#c6e48b",
+    "#7bc96f",
+    "#239a3b",
+    "#196127"
+];
 
-$("h1").css(styles);
+$("rect[fill='#196127']").attr("fill","#000000");
