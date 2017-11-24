@@ -6,11 +6,11 @@ const colors = {
     "#196127" : "#ff8000"   // l4
 };
 
-for (let key in colors) {
-    // rect blocks in contributions
-    $(`rect[fill='${key}']`).attr("fill",colors[key]);
-
-    // li blocks under contributions
-    $(`li[style='background-color: ${key}']`)
-    .attr("style",`background-color: ${colors[key]}`);
+for (let key in colors){
+    let arr = document.querySelectorAll(`rect[fill='${key}']`);
+    document.querySelector(`li[style='background-color: ${key}']`)
+    .setAttribute("style",`background-color: ${colors[key]}`);
+    for (var div of arr) {
+        div.setAttribute("fill",colors[key]);
+    };
 }
