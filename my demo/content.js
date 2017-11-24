@@ -7,9 +7,14 @@ const colors = {
 };
 
 for (let key in colors){
-    let arr = document.querySelectorAll(`rect[fill='${key}']`);
+    // Change color of list elements under contributions
     document.querySelector(`li[style='background-color: ${key}']`)
     .setAttribute("style",`background-color: ${colors[key]}`);
+
+    // return all rect elements as NodeList
+    let arr = document.querySelectorAll(`rect[fill='${key}']`);
+
+    // loop over rect elements changing colors
     for (var div of arr) {
         div.setAttribute("fill",colors[key]);
     };
