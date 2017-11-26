@@ -12,14 +12,18 @@ function changeTextTo(Text) {
     document.designMode = "off";
 }
 
-// TODO: pass unedited text to changetext function
+let number = /^[0-9]+/i;
 
 document.addEventListener('mouseup',function(event) {
 
-    selectedText = window.getSelection().toString().replace(/ /g,'');
+    let selectedText = window.getSelection().toString().replace(/ /g,'');
 
-    if (selectedText.length && selectedText.length < 7){
-        changeTextTo('Hello');
+    if (selectedText.length){
+        let n = selectedText.match(number);
+
+        if (n.length){
+            let x  = ((n*9)/5)+32;
+            changeTextTo(x);
+        }
     }
-
 })
