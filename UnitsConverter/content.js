@@ -1,20 +1,25 @@
 function changeTextTo(Text) {
-    sel = window.getSelection();
-    selectedText = sel.toString()
-    selectedText = selectedText.replace(/ /g,'');
 
-    if (selectedText.length){
-        if (sel.rangeCount && sel.getRangeAt) {
-            range = sel.getRangeAt(0);
-        }
-        document.designMode = "on";
+    let sel = window.getSelection();
 
-        document.execCommand('insertText', false, ` ${Text} `);
-
-        document.designMode = "off";
+    if (sel.rangeCount && sel.getRangeAt) {
+        range = sel.getRangeAt(0);
     }
+    document.designMode = "on";
+
+    document.execCommand('insertText', false, `${Text}`);
+
+    document.designMode = "off";
 }
 
+// TODO: pass unedited text to changetext function
+
 document.addEventListener('mouseup',function(event) {
-    changeTextTo('Hello');
+
+    selectedText = window.getSelection().toString().replace(/ /g,'');
+
+    if (selectedText.length && selectedText.length < 7){
+        changeTextTo('Hello');
+    }
+
 })
